@@ -34,12 +34,12 @@ export function Layout() {
           scrolled || open ? 'bg-ink/90 backdrop-blur-md border-b border-chrome/15' : 'bg-transparent'
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-8">
           <NavLink to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
             <img
               src="/bcg-logo.png"
               alt="Bird Construction Group"
-              className="h-10 w-auto md:h-12"
+              className="h-16 w-auto md:h-20"
             />
           </NavLink>
 
