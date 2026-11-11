@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Syne", ui-sans-serif, sans-serif;
+  --font-body: "Sora", ui-sans-serif, sans-serif;
+
+  --color-ink: #050505;
+  --color-charcoal: #121416;
+  --color-steel: #1c1f24;
+  --color-chrome: #d5d9de;
+  --color-silver: #9aa3ad;
+  --color-mist: #e8ebef;
+  --color-edge: #2a2f36;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink text-mist font-body antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(180, 190, 200, 0.08), transparent),
+      linear-gradient(180deg, #050505 0%, #0b0c0e 100%);
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: rgba(213, 217, 222, 0.25);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  .text-chrome {
+    background: linear-gradient(135deg, #8f969e 0%, #f2f4f6 42%, #a8b0b8 58%, #eceff2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-chrome {
+    background: linear-gradient(135deg, #7a828a 0%, #f4f6f8 45%, #9aa3ad 70%, #e8ebef 100%);
+  }
+
+  .border-chrome {
+    border-color: rgba(213, 217, 222, 0.28);
+  }
+
+  .metal-line {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(213, 217, 222, 0.55),
+      transparent
+    );
+  }
+
+  .reveal {
+    animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .reveal-delay-1 {
+    animation-delay: 0.12s;
+  }
+
+  .reveal-delay-2 {
+    animation-delay: 0.24s;
+  }
+
+  .reveal-delay-3 {
+    animation-delay: 0.36s;
+  }
+
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      110deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.18) 50%,
+      transparent 70%
+    );
+    transform: translateX(-120%);
+    animation: shimmer 4.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  55% {
+    transform: translateX(-120%);
+  }
+  85%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes logo-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.logo-enter {
+  animation: logo-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
